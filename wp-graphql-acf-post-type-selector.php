@@ -38,8 +38,10 @@ add_filter( 'wpgraphql_acf_register_graphql_field', function($field_config, $typ
 	// add resolver
 	$field_config['resolve'] = function( $root ) use ( $acf_field ) {
 		// when field is used in WP_Post and is top-level field (not nested in repeater, flexible content etc.)
-		if( $root->ID ) {
-				$value = get_field( $acf_field['key'], $root->ID, false );
+		if (is_object($root)) {
+			if( $root->ID ) {
+					$value = get_field( $acf_field['key'], $root->ID, false );
+			}
 
 		// when field is used in WP_Post and is nested in repeater, flexible content etc. ...
 		} elseif( array_key_exists( $acf_field['key'], $root ) ) {
