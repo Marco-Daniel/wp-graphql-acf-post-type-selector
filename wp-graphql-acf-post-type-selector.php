@@ -22,7 +22,7 @@ add_filter('post_type_selector_post_types', function($post_types) {
 }, 10);
 
 add_action( 'graphql_register_types', function() {
-	register_graphql_object_type('ACFSelectedConnected', [
+	register_graphql_object_type('ACFNodesOfSelectedPostTypes', [
 		'description' => __( 'Connection to selected post types.'),
 		'fields' => [
 			'postTypes' => ['type' => ['list_of' => 'String']],
@@ -62,7 +62,7 @@ add_filter( 'wpgraphql_acf_register_graphql_field', function($field_config, $typ
 	}
 
 	// define data type
-	$field_config['type'] = 'ACFNodesOfPostTypes';
+	$field_config['type'] = 'ACFNodesOfSelectedPostTypes';
 
 	// add resolver
 	$field_config['resolve'] = function( $root ) use ( $acf_field ) {
