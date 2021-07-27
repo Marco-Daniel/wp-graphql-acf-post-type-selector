@@ -62,7 +62,7 @@ add_filter( 'wpgraphql_acf_register_graphql_field', function($field_config, $typ
 	}
 
 	// define data type
-	$field_config['type'] = 'ACFSelectedConnected';
+	$field_config['type'] = 'ACFNodesOfPostTypes';
 
 	// add resolver
 	$field_config['resolve'] = function( $root ) use ( $acf_field ) {
