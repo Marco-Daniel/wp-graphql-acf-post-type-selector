@@ -55,6 +55,28 @@ add_action( 'graphql_register_types', function() {
 					$connection = $resolver->get_connection();
 					return $connection;
 				},
+				'connectionArgs' => [
+					'orderBy' => [
+						'type' => 'PostObjectsConnectionOrderbyInput',
+						'description' => __('Order by input.'),
+					],
+					'dateQuery' => [
+						'type' => 'DateQueryInput',
+						'description' => __('Filter the connection based on dates'),
+					],
+					'contentTypes' =>  [
+						'type' => ['list_of' => 'ContentTypeEnum'],
+						'description' => __('The Types of content to filter'),
+					],
+					'id' => [
+						'type' => 'Int',
+						'description' => __('Specific ID of the object'),
+					],
+					'name' => [
+						'type' => 'String',
+						'description' => __('Slug / post_name of the object'),
+					],
+				],
 			],
 		]
 	]);
