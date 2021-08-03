@@ -115,11 +115,7 @@ add_filter('graphql_acf_field_value', function($value, $acf_field, $root, $id) {
 		return $value;
 	}
 
-	if (is_array($value)) {
-		$data['postTypes'] = $value;
-	} else {
-		$data['postTypes'] = Array($value);
-	}
+	$data['postTypes'] = is_array($value) ? $value : Array($value);
 
 	return !empty( $value ) ? $data : null;
 }, 10, 4);
