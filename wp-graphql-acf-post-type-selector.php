@@ -6,7 +6,7 @@
  * Description: Add ACF post type selector field to WPGraphQL.
  * Author: M.D. Leguijt
  * Author URI: https://mddd.nl
- * Version: 1.2.0
+ * Version: 1.2.1
  */
 
 if (!defined('ABSPATH')) {
