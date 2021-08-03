@@ -6,7 +6,7 @@
  * Description: Add ACF post type selector field to WPGraphQL.
  * Author: M.D. Leguijt
  * Author URI: https://mddd.nl
- * Version: 1.1.1
+ * Version: 1.2.0
  */
 
 if (!defined('ABSPATH')) {
@@ -75,6 +75,30 @@ add_action( 'graphql_register_types', function() {
 					'name' => [
 						'type' => 'String',
 						'description' => __('Slug / post_name of the object'),
+					],
+					'hasPassword' => [
+						'type' => 'Boolean',
+						'description' => __('True for objects with passwords; False for objects without passwords; null for all objects with or without passwords'),
+					],
+					'in' => [
+						'type' => ['list_of' => 'ID'],
+						'description' => __('Array of IDs for the objects to retrieve'),
+					],
+					'notIn' => [
+						'type' => ['list_of' => 'ID'],
+						'description' => __('Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored'),
+					],
+					'stati' => [
+						'type' => ['list_of' => 'PostStatusEnum'],
+						'description' => __('Retrieve posts where post status is in an array.'),
+					],
+					'status' => [
+						'type' => 'PostStatusEnum',
+						'description' => __('Show posts with a specific status.'),
+					],
+					'title' => [
+						'type' => 'String',
+						'description' => __('Title of the object'),
 					],
 				],
 			],
