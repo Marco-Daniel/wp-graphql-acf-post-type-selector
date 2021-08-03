@@ -64,10 +64,6 @@ add_action( 'graphql_register_types', function() {
 						'type' => 'DateQueryInput',
 						'description' => __('Filter the connection based on dates'),
 					],
-					'contentTypes' =>  [
-						'type' => ['list_of' => 'ContentTypeEnum'],
-						'description' => __('The Types of content to filter'),
-					],
 					'id' => [
 						'type' => 'Int',
 						'description' => __('Specific ID of the object'),
